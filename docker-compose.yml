@@ -1,0 +1,27 @@
+version: '3'
+services:
+  app:
+    #trỏ vào service chứa Dockerfile
+    build: .
+    #update server real time (update khi chỉnh sửa code)
+    volumes:
+      - ./:/app
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://db:27017/CommentData
+    ports:
+      - 5001:8080
+    depends_on:
+        - redis
+        - db
+  db:
+    image: mongo
+    volumes:
+      - .docker/data/db:/data/db
+    restart: unless-stopped
+
+  redis:
+    image: redis:5-alpine
+    volumes:
+      - .docker/data/redis:/data
+    restart: unless-stopped
