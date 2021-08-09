@@ -1,7 +1,12 @@
 const Queue = require('bee-queue');
 const redis = require('redis');
+const client = redis.createClient({
+  host: 'redis-11010.c51.ap-southeast-2-1.ec2.cloud.redislabs.com',
+  port: '11010',
+  password: 'fIMR9EcN0qF2NCMowFj0ikQ1TdXsEdQ6'
+});
 const sharedConfig = {
-  redis: redis.createClient(process.env.REDIS_URL),
+  redis: client,
 };
 const queue = new Queue('crawl-inbox-facebook', sharedConfig);
 // Model && logic

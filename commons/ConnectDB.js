@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+const uri = "mongodb+srv://manh:123@cluster0.wruvb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 console.log("open Connect");
 
