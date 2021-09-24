@@ -55,7 +55,7 @@ passport.deserializeUser((user, done) => {
 passport.use(new FacebookStrategy({
   clientID: '1824956421068299',
   clientSecret: 'f3c9631f96b0b04392b4dc94d5a01153',
-  callbackURL: "https://6ed209690938.ngrok.io/auth/facebook/callback",
+  callbackURL: "https://demo-node-2021.herokuapp.com/auth/facebook/callback",
   profileFields: ['id', 'displayName', 'photos', 'email', 'accounts'],
 },
 (accessToken, refreshToken, profile, cb) => {
